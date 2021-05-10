@@ -1,0 +1,19 @@
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyD4iJl4Bh_zBJv7iGwdOYwqz0Uk-MX3r9s",
+    authDomain: "ra-home-bookkeeping.firebaseapp.com",
+    projectId: "ra-home-bookkeeping",
+    storageBucket: "ra-home-bookkeeping.appspot.com",
+    messagingSenderId: "13557178450",
+    appId: "1:13557178450:web:0d305fae24e3de6c1a3f8b"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>

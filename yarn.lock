@@ -1218,6 +1218,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.10.5":
+  version: 7.14.0
+  resolution: "@babel/runtime@npm:7.14.0"
+  dependencies:
+    regenerator-runtime: ^0.13.4
+  checksum: ab6653f2f8ecdaebf36674894cef458a9d4f881dc007fdcd50a8261f5c6d9731e03fda2c17e32ecf0e6c779d69eb6cf49d68a48c780aaf07d5b572e8b7ef0508
+  languageName: node
+  linkType: hard
+
 "@babel/template@npm:^7.0.0, @babel/template@npm:^7.12.13":
   version: 7.12.13
   resolution: "@babel/template@npm:7.12.13::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Ftemplate%2Fdownload%2F%40babel%2Ftemplate-7.12.13.tgz"
@@ -1447,6 +1456,13 @@ __metadata:
   version: 7.0.7
   resolution: "@types/json-schema@npm:7.0.7::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fjson-schema%2Fdownload%2F%40types%2Fjson-schema-7.0.7.tgz"
   checksum: b9d2c509fa4e0b82f58e73f5e6ab76c60ff1884ba41bb82f37fb1cece226d4a3e5a62fedf78a43da0005373a6713d9abe61c1e592906402c41c08ad6ab26d52b
+  languageName: node
+  linkType: hard
+
+"@types/lodash@npm:^4.14.165":
+  version: 4.14.168
+  resolution: "@types/lodash@npm:4.14.168"
+  checksum: 9a4e25f89fc035b9f0388f1f7be85e5eff49f9e6db0d93432c9a89fce0916f8a89db4e8290415f7ea02de6b00d3573826378dcb655b7b2d20530a6e8d6dd6fd0
   languageName: node
   linkType: hard
 
@@ -6879,6 +6895,13 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"lodash-es@npm:^4.17.15":
+  version: 4.17.21
+  resolution: "lodash-es@npm:4.17.21"
+  checksum: ff0e7bb9595594d8b9c32fbe15912eaeefd83266f6e6872fbc498533cf8c2f039d12d37034b33965f1c04ef66ec1d6da83377c77e84e14c51a137901bb50865e
+  languageName: node
+  linkType: hard
+
 "lodash._reinterpolate@npm:^3.0.0":
   version: 3.0.0
   resolution: "lodash._reinterpolate@npm:3.0.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Flodash._reinterpolate%2Fdownload%2Flodash._reinterpolate-3.0.0.tgz"
@@ -7506,6 +7529,13 @@ fsevents@~2.3.1:
   dependencies:
     node-gyp: latest
   checksum: 36349b2e5df4182aa0d0cc43fcd6cc782ca560a83c2764743d80c14ba5028d0c54041a2f464b8d4cb18a884e04415034a0a764c745e1d5502ea34a5cb6470a39
+  languageName: node
+  linkType: hard
+
+"nanoclone@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "nanoclone@npm:0.2.1"
+  checksum: f624fe519818ac2ab9fc2322d0bd8b54def4c0080123e7e4fa4a8d5fa331862e057a5c8fa1923cce6445d011a66718454750058a16c3a68b1912058288cd71a2
   languageName: node
   linkType: hard
 
@@ -8873,6 +8903,13 @@ fsevents@~2.3.1:
     err-code: ^2.0.2
     retry: ^0.12.0
   checksum: 325e99d059fc624129c020507047a9aeadb988d03fd2165829af7c43af9c6d0510f2ccddb68efa0bac607d4c43591b3af8b1207db132986bfa458f78549ea4f1
+  languageName: node
+  linkType: hard
+
+"property-expr@npm:^2.0.4":
+  version: 2.0.4
+  resolution: "property-expr@npm:2.0.4"
+  checksum: fffa6ba8a21cbbf694652755fe2cf4d68bfb8c625f2de6424910edf2c7d50a3f4e7e5ac749b8fe42261cb63d12148d7612f207397d244151e2d7fb853ce7bf5b
   languageName: node
   linkType: hard
 
@@ -10491,6 +10528,13 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"toposort@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "toposort@npm:2.0.2"
+  checksum: 9e70bf92de5e65e77e89065f34b642a9ae75be5cf4896152b5a131ca66c77c4d9edf056942e988e29b534a83643f38860e148aa939cd3c489d00abbf5639f54f
+  languageName: node
+  linkType: hard
+
 "tough-cookie@npm:~2.5.0":
   version: 2.5.0
   resolution: "tough-cookie@npm:2.5.0::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Ftough-cookie%2Fdownload%2Ftough-cookie-2.5.0.tgz"
@@ -10856,6 +10900,15 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"vee-validate@npm:next":
+  version: 4.3.6
+  resolution: "vee-validate@npm:4.3.6"
+  peerDependencies:
+    vue: ^3.0.0
+  checksum: 88ee2388524d6fb8a616c8f3f546c50d1447e653c46efb595aeb0296a3d7a5324c625e3e8cfc22a6b1a23435e1c8c30ee2ea14036f58ccf2b38b97014fd5fe8c
+  languageName: node
+  linkType: hard
+
 "vendors@npm:^1.0.0":
   version: 1.0.4
   resolution: "vendors@npm:1.0.4::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2Fvendors%2Fdownload%2Fvendors-1.0.4.tgz"
@@ -10958,9 +11011,11 @@ fsevents@~2.3.1:
     "@vue/compiler-sfc": ^3.0.0
     core-js: ^3.6.5
     register-service-worker: ^1.7.1
+    vee-validate: next
     vue: ^3.0.0
     vue-router: ^4.0.0-0
     vuex: ^4.0.0-0
+    yup: ^0.32.9
   languageName: unknown
   linkType: soft
 
@@ -11576,5 +11631,20 @@ fsevents@~2.3.1:
     y18n: ^5.0.5
     yargs-parser: ^20.2.2
   checksum: a79ce1f043021cd645de1ffebb6149541d382ba68f4a6b5eca5d2ad65af51893371bbd78e240dc3b6cf0cbb419511ba5bda715dec992e4266e6863ea49f14feb
+  languageName: node
+  linkType: hard
+
+"yup@npm:^0.32.9":
+  version: 0.32.9
+  resolution: "yup@npm:0.32.9"
+  dependencies:
+    "@babel/runtime": ^7.10.5
+    "@types/lodash": ^4.14.165
+    lodash: ^4.17.20
+    lodash-es: ^4.17.15
+    nanoclone: ^0.2.1
+    property-expr: ^2.0.4
+    toposort: ^2.0.2
+  checksum: 9da93a58fdd02562b676dc582125b4484d4f06b597498c83e249bdb604937669089e6d38d8a890fe83a256684e6386b389f65e9aef4b6efa5298a3ddb3084ba8
   languageName: node
   linkType: hard
