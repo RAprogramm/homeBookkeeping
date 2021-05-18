@@ -1,8 +1,5 @@
 <template>
-	<div>
-		<div class="page-title">
-			<h3>История записей</h3>
-		</div>
+	<Page title="История записей" />
 
 		<div class="history-chart">
 			<canvas></canvas>
@@ -39,12 +36,13 @@
 				</tbody>
 			</table>
 		</section>
-	</div>
 </template>
 
 <script>
-export default {
+import Page from '@/components/ui/Page'
 
+export default {
+	components: {Page}
 }
 </script>
 

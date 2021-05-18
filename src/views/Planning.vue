@@ -1,11 +1,9 @@
 <template>
-	<div>
-		<div>
-			<div class="page-title">
-				<h3>Планирование</h3>
-				<h4>12 212</h4>
-			</div>
-
+	<Page title="Планирование">
+		<template #header>
+			<h4>12 212</h4>
+		</template>
+	</Page>
 			<section>
 				<div>
 					<p>
@@ -20,13 +18,13 @@
 					</div>
 				</div>
 			</section>
-		</div>
-	</div>
 </template>
 
 <script>
-export default {
+import Page from '@/components/ui/Page'
 
+export default {
+	components: {Page}
 }
 </script>
 

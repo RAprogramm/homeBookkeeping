@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import store from '@/store'
 
 const routes = [
   {
@@ -6,6 +7,7 @@ const routes = [
     name: 'Home',
 	  component: () => import('@/views/Home.vue'),
 	  meta: {
+		  auth: true,
 		  layout: 'main'
 	  }
   },
@@ -22,6 +24,7 @@ const routes = [
     name: 'Categories',
 	  component: () => import('@/views/Categories.vue'),
 	  meta: {
+		  auth: true,
 		  layout: 'main'
 	  }
   },
@@ -38,6 +41,7 @@ const routes = [
     name: 'Detail',
 	  component: () => import('@/views/DetailRecord.vue'),
 	  meta: {
+		  auth: true,
 		  layout: 'main'
 	  }
   },
@@ -46,6 +50,7 @@ const routes = [
     name: 'History',
 	  component: () => import('@/views/History.vue'),
 	  meta: {
+		  auth: true,
 		  layout: 'main'
 	  }
   },
@@ -54,6 +59,7 @@ const routes = [
     name: 'Planning',
 	  component: () => import('@/views/Planning.vue'),
 	  meta: {
+		  auth: true,
 		  layout: 'main'
 	  }
   },
@@ -62,6 +68,7 @@ const routes = [
     name: 'Profile',
 	  component: () => import('@/views/Profile.vue'),
 	  meta: {
+		  auth: true,
 		  layout: 'main'
 	  }
   },
@@ -70,6 +77,7 @@ const routes = [
     name: 'Record',
 	  component: () => import('@/views/Record.vue'),
 	  meta: {
+		  auth: true,
 		  layout: 'main'
 	  }
   },
@@ -80,6 +88,25 @@ const router = createRouter({
   routes,
 	linkActiveClass: 'active',
 	linkExactActiveClass: 'active'
+})
+
+router.beforeEach((to, from, next) => {
+	const requireAuth = to.meta.auth
+
+	if (requireAuth) {
+		next()
+	} else if (requireAuth) {
+		next('/login?message=auth')
+	} else {
+		next()
+	}
+	// if (requireAuth && store.getters['auth/isAuthenticated']) {
+	// 	next()
+	// } else if (requireAuth && !store.getters['auth/isAuthenticated']) {
+	// 	next('/login?message=auth')
+	// } else {
+	// 	next()
+	// }
 })
 
 export default router

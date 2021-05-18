@@ -1,8 +1,5 @@
 <template>
-	<div>
-		<div class="page-title">
-			<h3>Новая запись</h3>
-		</div>
+	<Page title="Новая запись" />
 
 		<form class="form">
 			<div class="input-field" >
@@ -61,12 +58,13 @@
 				<i class="material-icons right">send</i>
 			</button>
 		</form>
-	</div>
 </template>
 
 <script>
-export default {
+import Page from '@/components/ui/Page'
 
+export default {
+	components: {Page}
 }
 </script>
 

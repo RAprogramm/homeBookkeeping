@@ -7,7 +7,7 @@
 					id="email"
 					type="email"
 					v-model="email"
-					autocomplete="username"
+					autocomplete="email"
 					@blur="eBlur"
 					placeholder="Email"
 				>
@@ -54,6 +54,7 @@ import {useStore} from 'vuex'
 export default {
 	setup() {
 		const route = useRoute()
+		const store = useStore()
 
 		if (route.query.message) {
 			store.dispatch('setMessage', {

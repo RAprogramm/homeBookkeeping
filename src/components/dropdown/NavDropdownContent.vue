@@ -1,12 +1,12 @@
 <template>
 	<div v-if="active" class="dropdown-backdrop" @click="close" />
 	<transition name="dropdown-content">
-		<div
+		<ul
 				class="dropdownMenu"
 				v-if="active"
 		>
 			<slot />
-		</div>
+		</ul>
 	</transition>
 </template>
 

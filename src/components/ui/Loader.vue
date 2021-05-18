@@ -1,11 +1,13 @@
 <template>
-		<router-link to="#" tag="li">
-			<slot />
-		</router-link>
+	<div class="loader"/>
 </template>
 
 <script>
 export default {
+
 }
 </script>
 
+<style>
+
+</style>

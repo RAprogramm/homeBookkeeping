@@ -1,8 +1,15 @@
 import { createApp } from 'vue'
-import App from './App.vue'
-import './registerServiceWorker'
-import router from './router'
-import store from './store'
-import './styles.css'
+import App from '@/App.vue'
+import '@/registerServiceWorker'
+import router from '@/router'
+import store from '@/store'
+import { getAuth, onAuthStateChanged } from "firebase/auth"
+import '@/styles.css'
 
-createApp(App).use(store).use(router).mount('#app')
+let app
+
+getAuth().onAuthStateChanged(() => {
+	if (!app) {
+		app = createApp(App).use(store).use(router).mount('#app')
+	}
+})

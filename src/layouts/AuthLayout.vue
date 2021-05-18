@@ -1,12 +1,15 @@
 <template>
 	<div class="grey darken-1 auth-layout">
+			<message />
 		<router-view />
 	</div>
 </template>
 
 <script>
-export default {
+import Message from '@/components/ui/Message'
 
+export default {
+	components: {Message}
 }
 </script>
 

@@ -1,6 +1,8 @@
 <template>
-	<div class="app-main-layout">
+	<Loader v-if="loading"/>
+	<div class="app-main-layout" v-else>
 
+			<message />
 		<the-navbar @toggleSide="isOpen = !isOpen"/>
 		<the-sidebar v-model="isOpen"/>
 
@@ -20,17 +22,29 @@
 </template>
 
 <script>
-import {ref} from 'vue'
+import {ref, onMounted} from 'vue'
+import {useStore} from 'vuex'
 import TheNavbar from '@/components/TheNavbar'
 import TheSidebar from '@/components/TheSidebar'
+import Message from '@/components/ui/Message'
+import Loader from '@/components/ui/Loader'
 
 export default {
-	components: {TheNavbar, TheSidebar},
+	components: {TheNavbar, TheSidebar, Message, Loader},
 	setup() {
+		const store =useStore()
 		const isOpen = ref(true)
+		const loading = ref(true)
 
+		onMounted(async() => {
+			if (!Object.keys(store.getters['user/info']).lenght) {
+				await store.dispatch('user/getAuthUser')
+			}
+			loading.value = false
+		})
 		return {
-			isOpen
+			isOpen,
+			loading
 		}
 	}
 }

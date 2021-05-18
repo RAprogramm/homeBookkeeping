@@ -17,9 +17,11 @@ body {
 .toggleSideBtn {
 	font-size: 2rem;
 	display: contents;
+	cursor: pointer;
 }
 .dropdownBtn {
 	display: contents;
+	cursor: pointer;
 }
 .open {
 	transform: translateX(0);
@@ -121,12 +123,12 @@ a.btn-floating.btn-large.btn-add.blue {
 i.large {
     font-size: 2rem;
 }
-.material-icons {
-    text-rendering: optimizeLegibility;
-    -webkit-font-feature-settings: 'liga';
-    -moz-font-feature-settings: 'liga';
-    font-feature-settings: 'liga';
-}
+/* .material-icons { */
+/*     text-rendering: optimizeLegibility; */
+/*     -webkit-font-feature-settings: 'liga'; */
+/*     -moz-font-feature-settings: 'liga'; */
+/*     font-feature-settings: 'liga'; */
+/* } */
 .material-icons {
     font-family: 'Material Icons';
     font-weight: normal;
@@ -494,9 +496,6 @@ a {
     background-color: #ef6c00 !important;
 }
 
-.bill-card {
-    height: 310px;
-}
 .card {
     position: relative;
     margin: .5rem 0 1rem 0;
@@ -769,3 +768,139 @@ button, input, optgroup, select, textarea {
 .center {
 	text-align: center;
 }
+
+ .alert {
+       padding: 1rem 1.5rem;
+       border-left-width: .5rem;
+       border-left-style: solid;
+       margin: 1rem 0;
+       position: relative;
+       border-bottom-right-radius: 2px;
+       border-top-right-radius: 2px;
+   }
+   .slide-fade-enter-active {
+	   transition: all 1s ease;
+   }
+   .slide-fade-leave-active {
+	   transition: all 1s cubic-bezier(1.0, 0.5, 0.8, 1.0)
+   }
+   .slide-fade-enter, .slide-fade-leave-to {
+	   transform: translateY(-100px);
+	   opacity: 0;
+   }
+  
+   .alert.primary {
+       border-color: #42b983;
+       background-color: #f8f8f8;
+   }
+  
+   .alert.danger {
+       border-color: #e53935;
+       background-color: #f8f8f8;
+   }
+  
+   .alert.warning {
+       border-color: #c25205;
+       background-color: #f8f8f8;
+   }
+  
+   .alert p {
+       color: #222;
+       line-height: 1.7;
+   }
+  
+   .alert-title {
+       text-transform: uppercase;
+       font-weight: 600;
+       margin-bottom: -.4rem;
+       color: #222;
+   }
+  
+   .alert-close {
+	   color: red;
+       position: absolute;
+       top: 10px;
+       right: 10px;
+       font-size: 1.5rem;
+       cursor: pointer;
+   }
+
+   .loader {
+	   font-size: 10px;
+	   margin: 50px auto;
+	   text-indent: -9999em;
+	   width: 11em;
+	   height: 11em;
+	   border-radius: 50%;
+	   background: green;
+	   background: -moz-linear-gradient(left, green 10%, rgba(255, 255, 255, 0) 42%);
+	   background: -webkit-linear-gradient(left, green 10%, rgba(255, 255, 255, 0) 42%);
+	   background: -o-linear-gradient(left, green 10%, rgba(255, 255, 255, 0) 42%);
+	   background: -ms-linear-gradient(left, green 10%, rgba(255, 255, 255, 0) 42%);
+	   background: linear-gradient(to right, green 10%, rgba(255, 255, 255, 0) 42%);
+	   position: relative;
+	   -webkit-animation: load3 1.4s infinite linear;
+	   animation: load3 1.4s infinite linear;
+	   -webkit-transform: translateZ(0);
+	   -ms-transform: translateZ(0);
+	   transform: translateZ(0);
+   }
+   .loader:before {
+	   width: 50%;
+	   height: 50%;
+	   background: green;
+	   border-radius: 100% 0 0 0;
+	   position: absolute;
+	   top: 0;
+	   left: 0;
+	   content: '';
+   }
+
+   .loader:after {
+	   background: white;
+	   width: 75%;
+	   height: 75%;
+	   border-radius: 50%;
+	   content: '';
+	   margin: auto;
+	   position: absolute;
+	   top: 0;
+	   left: 0;
+	   bottom: 0;
+	   right: 0;
+   }
+   @-webkit-keyframes load3 {
+	   0% {
+		   -webkit-transform: rotate(0deg);
+		   transform: rotate(0deg);
+	   }
+	   100% {
+		   -webkit-transform: rotate(360deg);
+		   transform: rotate(360deg);
+	   }
+   }
+   @keyframes load3 {
+	   0% {
+		   -webkit-transform: rotate(0deg);
+		   transform: rotate(0deg);
+	   }
+	   100% {
+		   -webkit-transform: rotate(360deg);
+		   transform: rotate(360deg);
+	   }
+   }
+   .btn:disabled {
+	   cursor: not-allowed;
+	   opacity: 1!important;
+	   background: #eee!important;
+	   border-color: #ddd!important;
+	   color: #999!important;
+   }
+   .title {
+	   display: flex;
+	   justify-content: space-between;
+	   align-items: center;
+   }
+   .tableOrange {
+	   width: -webkit-fill-available;
+   }

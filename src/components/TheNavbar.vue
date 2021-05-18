@@ -21,6 +21,7 @@
 <script>
 import {onMounted, onUnmounted, ref, computed} from 'vue'
 import {useRouter} from 'vue-router'
+import {useStore} from 'vuex'
 import NavDropdown from '@/components/dropdown/NavDropdown.vue'
 import NavDropdownItem from '@/components/dropdown/NavDropdownItem.vue'
 import NavDropdownContent from '@/components/dropdown/NavDropdownContent.vue'
@@ -29,8 +30,10 @@ export default {
 	components: {NavDropdown, NavDropdownItem, NavDropdownContent},
 	setup() {
 		const date = ref(new Date())
+		const store = useStore()
 		const router = useRouter()
 		const interval = ref(null)
+
 
 
 		onMounted(() => {
@@ -42,15 +45,15 @@ export default {
 		})
 
 		onUnmounted(() => {
-			console.log('unmount')
 			clearInterval(interval)
 		})
 
 
 		return {
 			date: computed(() => date.value),
-			logout: () => {
-				console.log('Logout')
+			logout: async () => {
+				await store.dispatch('auth/logout')
+				store.commit('user/clearInfo')
 				router.push('/login?message=logout')
 			}
 		}
