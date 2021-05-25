@@ -10,8 +10,8 @@ export default {
 			await createUserWithEmailAndPassword(auth, email, password)
 				.then(async(userCredential) => {
 					const uid = userCredential.user.uid
-					const authUserData = doc(collection(db, 'users'), uid)
-					const authUserInfo = doc(collection(authUserData, 'info'), 'about')
+					const authUserData = await doc(collection(db, 'users'), uid)
+					const authUserInfo = await doc(collection(authUserData, 'info'), 'about')
 					await setDoc(authUserInfo, {
 						name,
 						email,

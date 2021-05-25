@@ -13,7 +13,7 @@ node_modules
 
 # Log files
 .yarn/*
-.yarn/
+.yarn/cache
 .yarn
 /.yarn
 npm-debug.log*

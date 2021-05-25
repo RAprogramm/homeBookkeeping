@@ -771,12 +771,17 @@ button, input, optgroup, select, textarea {
 
  .alert {
        padding: 1rem 1.5rem;
-       border-left-width: .5rem;
+       border-left-width: 0.6rem;
        border-left-style: solid;
        margin: 1rem 0;
-       position: relative;
-       border-bottom-right-radius: 2px;
-       border-top-right-radius: 2px;
+
+	   position: absolute;
+	   top: 2rem;
+	   z-index: 1000;
+	   width: 70%;
+	   left: 15%;
+	   box-shadow: 3px 3px 10px black;
+	   border-radius: 1rem;
    }
    .slide-fade-enter-active {
 	   transition: all 1s ease;

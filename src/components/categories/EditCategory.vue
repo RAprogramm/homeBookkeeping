@@ -5,41 +5,128 @@
 				<h4>Редактировать</h4>
 			</div>
 
-			<form>
+			<form @submit.prevent="onSubmit">
 				<div class="input-field" >
-					<select>
-						<option>Category</option>
+					<span>Choose category</span>
+					<select 
+					 	name="category"
+						v-model="category" 
+						@blur="cBlur" 
+					>
+						<option disabled>Выберите категорию</option>
+						<option v-for="c in categories" :key="c.id" :value="c.id">{{c.title}}</option>
 					</select>
-					<label>Выберите категорию</label>
-				</div>
-
-				<div class="input-field">
-					<input type="text" id="name">
-					<label for="name">Название</label>
-					<span class="helper-text invalid">TITLE</span>
+					<span class="helper-text invalid" v-if="cError">{{cError}}</span>
 				</div>
 
 				<div class="input-field">
 					<input
-							id="limit"
-							type="number"
+							name="title"
+							type="text"
+							v-model="title"
+							@blur="tBlur"
+							placeholder="Название"
 							>
-							<label for="limit">Лимит</label>
-							<span class="helper-text invalid">LIMIT</span>
+							<span class="helper-text invalid" v-if="tError">{{tError}}</span>
 				</div>
 
-				<button class="btn waves-effect waves-light" type="submit">
+				<div class="input-field">
+					<input
+							name="limit"
+							type="number"
+							v-model.number="limit"
+							@blur="lBlur"
+							placeholder="Лимит"
+							>
+							<span class="helper-text invalid" v-if="lError">{{lError}}</span>
+				</div>
+
+				<button class="btn waves-effect waves-light" :disabled="isSubmitting" type="submit">
 					Обновить
 					<i class="material-icons right">send</i>
 				</button>
 			</form>
+				<button @click="check">check</button>
 		</div>
 	</div>
 </template>
 
 <script>
-export default {
+import {reactive, watch} from 'vue'
+import * as yup from 'yup'
+import {useField, useForm} from 'vee-validate'
+import {useStore} from 'vuex'
 
+export default {
+	props: ['categories'],
+	setup(props) {
+		const store = useStore()
+		const {handleSubmit, isSubmitting} = useForm()
+		const prevData = reactive({
+			
+		})
+
+		const {value: category, errorMessage: cError, handleBlur: cBlur} = useField(
+			'category',
+			yup
+			.string()
+			.required('choose category for edit')
+		)
+
+		const {value: title, errorMessage: tError, handleBlur: tBlur} = useField(
+			'title',
+			yup
+				.string()
+				.trim()
+				.required('Введите название')
+		)
+		
+	 	const MIN_VALUE = 100
+	 	const {value: limit, errorMessage: lError, handleBlur: lBlur} = useField(
+			'limit',
+			yup
+				.number()
+				.required('Необходимо указать лимит!')
+				.min(MIN_VALUE, `Минимальная величина больше ${MIN_VALUE}`)
+		)
+
+	 	const onSubmit = handleSubmit(async values => {
+			try {
+				await store.dispatch('categories/editCat', values)
+			} catch (e) {}
+		})
+
+		const current = watch(category, catId => {
+			const {title, limit} = props.categories.find(c => c.id === catId)
+			console.log(category.value)
+			console.log(title)
+			console.log(limit)
+			// title.value = title
+			// limit.value = limit
+		})
+		const check = () => {
+			console.log(category.value)
+			console.log(title.value)
+			console.log(limit.value)
+		}
+
+		return {
+			prevData,
+			check,
+			category,
+			title,
+			limit,
+			current,
+			cError,
+			cBlur,
+			tError,
+			lError,
+			tBlur,
+			lBlur,
+			onSubmit,
+			isSubmitting
+		}
+	}
 }
 </script>
 

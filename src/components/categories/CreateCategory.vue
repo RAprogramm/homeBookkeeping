@@ -21,14 +21,18 @@
 					<input
 							id="limit"
 							type="number"
-							v-model="limit"
+							v-model.number="limit"
 							@blur="lBlur"
 							placeholder="Лимит"
 							>
 							<span class="helper-text invalid" v-if="lError">{{lError}}</span>
 				</div>
 
-				<button class="btn waves-effect waves-light" type="submit">
+				<button
+					:disabled="isSubmitting" 
+					class="btn waves-effect waves-light" 
+					type="submit" 
+				>
 					Создать
 					<i class="material-icons right">✓</i>
 				</button>
@@ -38,12 +42,50 @@
 </template>
 
 <script>
-import {useCreateCategory} from '@/use/create-category-form'
+import {useStore} from 'vuex'
+import * as yup from 'yup'
+import {useField, useForm} from 'vee-validate'
 
 export default {
-	setup() {
+	emits: ['created'],
+	setup(_, {emit}) {
+		const store = useStore()
+		const {handleSubmit, isSubmitting} = useForm()
+
+		const {value: title, errorMessage: tError, handleBlur: tBlur, resetField: tReset} = useField(
+			'title',
+			yup
+			.string()
+			.trim()
+			.required('Введите название')
+		)
+		 	const MIN_VALUE = 100
+		const {value: limit, errorMessage: lError, handleBlur: lBlur, resetField: lReset} = useField(
+			'limit',
+			yup
+			.number()
+			.required('Необходимо указать лимит!')
+			.min(MIN_VALUE, `Минимальная величина больше ${MIN_VALUE}`)
+		)
+
+		 	const onSubmit = handleSubmit(async values => {
+			try {
+				const category = await store.dispatch('categories/createCat', values)
+				emit('created', category)
+				tReset()
+				lReset()
+			} catch (e) {}
+		})
+
 		return {
-			...useCreateCategory()
+			onSubmit,
+			title,
+			limit,
+			tError,
+			lError,
+			tBlur,
+			lBlur,
+			isSubmitting
 		}
 	}
 }

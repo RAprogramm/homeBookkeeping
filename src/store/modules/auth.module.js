@@ -23,7 +23,6 @@ export default {
 		async logout({commit}) {
 			await signOut(auth)
 				.then(() => {
-				// commit('clearInfo')
 				console.log('logout success')
 			})
 				.catch((error) => {

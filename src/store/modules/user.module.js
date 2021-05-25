@@ -1,5 +1,5 @@
 import {getAuth} from 'firebase/auth' 
-import {orderBy, doc, getDoc, collection, onSnapshot, query, where} from 'firebase/firestore'
+import {doc, getDoc, collection} from 'firebase/firestore'
 import {db} from '@/firebase'
 
 export default {
@@ -21,8 +21,9 @@ export default {
 		async getAuthUser({dispatch, commit}) {
 			try {
 				const user = await getAuth().currentUser
-				const userData = doc(collection(db, 'users'), user.uid)
-				const userInfo = doc(collection(userData, 'info'), 'about')
+				const userData = await doc(collection(db, 'users'), user.uid)
+				const userInfo = await doc(collection(userData, 'info'), 'about')
+
 
 				const userInfoAbout = await getDoc(userInfo)
 				if (userInfoAbout.exists()) {
@@ -43,7 +44,6 @@ export default {
 					value: error.message,
 					type: 'danger'
 				}, {root: true})
-				throw new Error()
 			}
 		}
 	},

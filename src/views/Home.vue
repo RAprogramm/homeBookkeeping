@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import {ref, reactive, onMounted, onBeforeMount} from 'vue'
+import {ref, reactive, onBeforeMount} from 'vue'
 import {useStore} from 'vuex'
 import Page from '@/components/ui/Page'
 import Loader from '@/components/ui/Loader'
