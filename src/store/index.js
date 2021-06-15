@@ -3,6 +3,7 @@ import auth from '@/store/modules/auth.module.js'
 import register from '@/store/modules/register.module.js'
 import user from '@/store/modules/user.module.js'
 import categories from '@/store/modules/categories.module.js'
+import records from '@/store/modules/records.module.js'
 
 const plugins = []
 
@@ -39,6 +40,6 @@ export default createStore({
 		}
 	},
 	modules: {
-		auth, register, user, categories
+		auth, register, user, categories, records
 	}
 })

@@ -6,8 +6,8 @@
 			</div>
 
 			<form @submit.prevent="onSubmit">
+				<label>Выберите категорию</label>
 				<div class="input-field" >
-					<span>Choose category</span>
 					<select 
 					 	name="category"
 						v-model="category" 
@@ -46,25 +46,22 @@
 					<i class="material-icons right">send</i>
 				</button>
 			</form>
-				<button @click="check">check</button>
 		</div>
 	</div>
 </template>
 
 <script>
-import {reactive, watch} from 'vue'
+import {watch} from 'vue'
 import * as yup from 'yup'
 import {useField, useForm} from 'vee-validate'
 import {useStore} from 'vuex'
 
 export default {
 	props: ['categories'],
-	setup(props) {
+	emits: ['updated'],
+	setup(props, context) {
 		const store = useStore()
 		const {handleSubmit, isSubmitting} = useForm()
-		const prevData = reactive({
-			
-		})
 
 		const {value: category, errorMessage: cError, handleBlur: cBlur} = useField(
 			'category',
@@ -93,26 +90,17 @@ export default {
 	 	const onSubmit = handleSubmit(async values => {
 			try {
 				await store.dispatch('categories/editCat', values)
+				context.emit('updated', values)
 			} catch (e) {}
 		})
 
 		const current = watch(category, catId => {
-			const {title, limit} = props.categories.find(c => c.id === catId)
-			console.log(category.value)
-			console.log(title)
-			console.log(limit)
-			// title.value = title
-			// limit.value = limit
+			const {title: catTitle, limit: catLimit} = props.categories.find(c => c.id === catId)
+			title.value = catTitle
+			limit.value = catLimit
 		})
-		const check = () => {
-			console.log(category.value)
-			console.log(title.value)
-			console.log(limit.value)
-		}
 
 		return {
-			prevData,
-			check,
 			category,
 			title,
 			limit,

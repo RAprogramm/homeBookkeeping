@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import {getAuth} from 'firebase/auth'
 import store from '@/store'
 
 const routes = [
@@ -37,7 +38,7 @@ const routes = [
 	  }
   },
   {
-    path: '/detail',
+	  path: '/detail/:id',
     name: 'Detail',
 	  component: () => import('@/views/DetailRecord.vue'),
 	  meta: {
@@ -90,12 +91,11 @@ const router = createRouter({
 	linkExactActiveClass: 'active'
 })
 
-router.beforeEach((to, from, next) => {
+router.beforeEach(async(to, from, next) => {
+	const currentUser = await getAuth().currentUser
 	const requireAuth = to.meta.auth
 
-	if (requireAuth) {
-		next()
-	} else if (requireAuth) {
+	if (requireAuth && !currentUser) {
 		next('/login?message=auth')
 	} else {
 		next()

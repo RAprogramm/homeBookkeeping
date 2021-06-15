@@ -4,7 +4,13 @@
 			<Loader v-if="loading"/>
 			<div class="row" v-else>
 				<CreateCategory @created="addNewCategory"/>
-				<EditCategory :categories="categories"/>
+				<EditCategory 
+				 	v-if="categories.length"
+					:key="categories.length + upCount" 
+					:categories="categories" 
+					@updated="updateCategories"
+				/>
+				<p v-else>There is no categories</p>
 			</div>
 		</section>
 </template>
@@ -23,6 +29,7 @@ export default {
 		const store = useStore()
 		const categories = ref([])
 		const loading = ref(true)
+		const upCount = ref(0)
 
 		onBeforeMount(async() => {
 			categories.value = await store.dispatch('categories/getCategories')
@@ -33,7 +40,16 @@ export default {
 			categories.value.push(category)
 		}
 
+		const updateCategories = (values) => {
+			const idx = categories.value.findIndex(c => c.id === values.category)
+			categories.value[idx].title = values.title
+			categories.value[idx].limit = values.limit
+			upCount.value++
+		}
+
 		return {
+			upCount,
+			updateCategories,
 			addNewCategory,
 			loading,
 			categories

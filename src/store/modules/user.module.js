@@ -1,5 +1,5 @@
 import {getAuth} from 'firebase/auth' 
-import {doc, getDoc, collection} from 'firebase/firestore'
+import {doc, getDoc, collection, updateDoc} from 'firebase/firestore'
 import {db} from '@/firebase'
 
 export default {
@@ -24,22 +24,27 @@ export default {
 				const userData = await doc(collection(db, 'users'), user.uid)
 				const userInfo = await doc(collection(userData, 'info'), 'about')
 
-
 				const userInfoAbout = await getDoc(userInfo)
 				if (userInfoAbout.exists()) {
 					const info = userInfoAbout.data()
 					commit('setInfo', info)
 				} 
-				// -------------------------------------------
-				// "unsubscribe" from listener is required 
-				//
-				// onSnapshot(userInfo, (doc) => {
-				// 	const info = doc.data()
-				// 	commit('setInfo', info)
-				// })
-
 			} catch (error) {
-				console.log(error.message)
+				dispatch('setMessage', {
+					value: error.message,
+					type: 'danger'
+				}, {root: true})
+			}
+		},
+		async updateInfo({dispatch, commit, getters}, toUpdate) {
+			try {
+				const user = await getAuth().currentUser
+				const userData = await doc(collection(db, 'users'), user.uid)
+				const userInfo = await doc(collection(userData, 'info'), 'about')
+				const updateData = {...getters.info, ...toUpdate}
+				await updateDoc(userInfo, updateData, {merge: true})
+				commit('setInfo', updateData)
+			} catch (error) {
 				dispatch('setMessage', {
 					value: error.message,
 					type: 'danger'

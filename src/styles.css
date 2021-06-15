@@ -909,3 +909,69 @@ button, input, optgroup, select, textarea {
    .tableOrange {
 	   width: -webkit-fill-available;
    }
+
+   table {
+	   width: -webkit-fill-available;
+   }
+
+.progress {
+	height: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0px 0px 6px #777 inset;
+    padding: 0 0 1.5rem 0;
+    font-weight: bold;
+    background: linear-gradient(to right, #22bc22, red);
+    text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1rem;
+	text-shadow: 0px 0px 6px white;
+}
+.progressBar {
+    padding: 0 0 1.5rem 0;
+	display:inline-block;
+	float:left;
+	height:100%;
+	/* margin:0px -10px 0 0; */
+	border-radius: 15px;
+	box-shadow:0px 0px 6px grey inset;
+	opacity: 0.7;
+	background-color: white;
+}
+.progressPercent {
+	display: inline-grid;
+	position: absolute;
+	z-index: 1000;
+}
+.green {
+	box-shadow:0px 0px 15px white inset;
+}
+.badge {
+    font-size: 0.8rem;
+    border: 1px solid #eee;
+    border-radius: 15px;
+    padding: 0 .5rem;
+}
+
+.badge.primary {
+    border-color: #3eaf7c;
+    color: #3eaf7c;
+}
+
+.badge.danger {
+    border-color: #e53935;
+    color: #e53935;
+}
+
+.badge.warning {
+    border-color: #c25205;
+    color: #c25205;
+}
+.red {
+	background-color: red;
+	color: white;
+}
+.green {
+	background-color: green;
+	color: white;
+
+}

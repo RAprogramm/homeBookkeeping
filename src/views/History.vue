@@ -5,44 +5,84 @@
 			<canvas></canvas>
 		</div>
 
-		<section>
-			<table>
-				<thead>
-					<tr>
-						<th>#</th>
-						<th>Сумма</th>
-						<th>Дата</th>
-						<th>Категория</th>
-						<th>Тип</th>
-						<th>Открыть</th>
-					</tr>
-				</thead>
+		<Loader v-if="loading" />
 
-				<tbody>
-					<tr>
-						<td>1</td>
-						<td>1212</td>
-						<td>12.12.32</td>
-						<td>name</td>
-						<td>
-							<span class="white-text badge red">Расход</span>
-						</td>
-						<td>
-							<button class="btn-small btn">
-								<i class="material-icons">open_in_new</i>
-							</button>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+		<p v-else-if="items.length === 0">
+			No records. 
+			<router-link to="/record">create new record</router-link>
+		</p>
+
+		<section v-else>
+			<HistoryTable :records="items" v-model="items"/>
+			<Pagination 
+						 @onClickPage="numberPage"
+						 @onClickPrev="prevPage"
+						 @onClickNext="nextPage"
+						 @onClickFirst="firstPage"
+						 @onClickLast="lastPage"
+						 :pages="pageCount" 
+						 :currentPage="page"
+			/>
 		</section>
 </template>
 
 <script>
+import {onMounted, ref, computed, watch} from 'vue'
+import {useStore} from 'vuex'
 import Page from '@/components/ui/Page'
+import HistoryTable from '@/components/history/HistoryTable'
+import Loader from '@/components/ui/Loader'
+import Pagination from '@/components/pagination/Pagination'
+import {usePagination} from '@/mixins/pagination.mixin.js'
 
 export default {
-	components: {Page}
+	components: {Page, HistoryTable, Loader, Pagination},
+	setup() {
+		onMounted(async() => {
+			const categories = await store.dispatch('categories/getCategories')
+			const recordsFb = await store.dispatch('records/getRecords')
+			items.value = recordsFb.map(record => {
+				return {
+					...record,
+					categoryName: categories.find(c => c.id === record.categoryId).title,
+				}
+			})
+			setupPagination(items.value)
+			loading.value = false
+		})
+
+
+		const store = useStore()
+		const loading = ref(true)
+
+		const {
+			setupPagination, 
+			items, 
+			pageCount, 
+			allItems, 
+			page, 
+			pageSize, 
+			numberPage, 
+			nextPage, 
+			prevPage, 
+			firstPage, 
+			lastPage,
+		} = usePagination()
+
+		return {
+			numberPage,
+			nextPage,
+			prevPage,
+			firstPage,
+			lastPage,
+			page,
+			pageSize,
+			allItems,
+			items,
+			pageCount,
+			loading,
+		}
+	}
 }
 </script>
 
