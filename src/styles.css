@@ -1,0 +1,129 @@
+html {
+    font-size: 14px;
+}
+
+body {
+    background-color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+    font-weight: normal;
+    color: #495057;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-bottom: 50px;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 1.5rem 0 1rem 0;
+    font-family: inherit;
+    font-weight: 600;
+    line-height: 1.2;
+    color: inherit;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+p {
+    line-height: 1.5;
+    margin: 0 0 1rem 0;
+}
+
+.card {
+    margin-bottom: 2rem;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+@keyframes pulse {
+    0% {
+        background-color: rgba(165, 165, 165, 0.1)
+    }
+    50% {
+        background-color: rgba(165, 165, 165, 0.3)
+    }
+    100% {
+        background-color: rgba(165, 165, 165, 0.1)
+    }
+}
+.image-text {
+    margin-left: .5rem;
+}
+.badge {
+    font-size: 1rem;
+    border: 1px solid #eee;
+    border-radius: 15px;
+    padding: 0 .5rem;
+}
+.badge.primary {
+    border-color: #3eaf7c;
+    color: #3eaf7c;
+}
+.badge.danger {
+    border-color: #e53935;
+    color: #e53935;
+}
+.badge.warning {
+    border-color: #c25205;
+    color: #c25205;
+}
+.col {
+  float: left;
+  width: 50%;
+  padding: 0 10px;
+}
+.row {margin: 1rem;}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media screen and (max-width: 600px) {
+  .col {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+.homeCard {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+.sideItem:hover {
+    background-color: rgba(0,0,0,0.05);
+		border-radius: 10px;
+}
+.sideItem {
+    color: rgba(0,0,0,0.87);
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    height: 5rem;
+    line-height: 5rem;
+    padding: 0 32px;
+		text-decoration: none;
+}
+.active {
+    background-color: rgba(0,0,0,0.05);
+		border-radius: 10px;
+		box-shadow: 0 0 5px black;
+}
+.app-page {
+	margin: 1rem;
+}
+.userName {
+	vertical-align: 4px;
+}

@@ -1,0 +1,36 @@
+{
+  "name": "vue3-crm",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "@vuelidate/core": "^2.0.0-alpha.19",
+    "@vuelidate/validators": "^2.0.0-alpha.17",
+    "chart.js": "^3.4.0",
+    "chartjs-adapter-luxon": "^1.0.0",
+    "core-js": "^3.6.5",
+    "firebase": "9.0.0-beta.1",
+    "luxon": "^1.27.0",
+    "mitt": "^3.0.0",
+    "primeicons": "^4.1.0",
+    "primevue": "^3.5.1",
+    "register-service-worker": "^1.7.1",
+    "vee-validate": "next",
+    "vue": "^3.0.0",
+    "vue-chart-3": "^0.2.0",
+    "vue-router": "^4.0.0-0",
+    "vuex": "^4.0.0-0",
+    "yup": "^0.32.9"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-pwa": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0"
+  }
+}
