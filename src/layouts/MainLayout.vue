@@ -1,9 +1,10 @@
 <template>
-	<Loader v-if="loading"/>
+	<ProgressSpinner v-if="loading"/>
 	<div class="app-main-layout" v-else>
 		<Panel>
 		<template #header>
 			<Button icon="pi pi-arrow-right" @click="visibleLeft = true" v-tooltip="'Панель навигации'"/>
+				<strong>{{currencyFilter($store.getters['user/info'].bill)}}</strong>
 		</template>
 
 		<template #icons>
@@ -48,14 +49,15 @@
 import {computed, reactive, watch, ref, onMounted} from 'vue'
 import {useStore} from 'vuex'
 import {useRouter} from 'vue-router'
-import Loader from '@/components/ui/Loader'
+import ProgressSpinner from 'primevue/progressspinner'
 import Panel from 'primevue/panel';
 import Menu from 'primevue/menu'
 import Sidebar from 'primevue/sidebar';
+import currencyFilter from '@/utils/currency'
 
 
 export default {
-	components: {Panel, Sidebar, Loader, Menu},
+	components: {Panel, Sidebar, ProgressSpinner, Menu},
 	setup() {
 		const store =useStore()
 		const router = useRouter()
@@ -107,6 +109,7 @@ export default {
 		})
 
 		return {
+			currencyFilter,
 			menu,
 			collapsed,
 			toggle,

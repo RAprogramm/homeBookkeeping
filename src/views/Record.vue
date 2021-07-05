@@ -1,7 +1,7 @@
 <template>
 
 	<Page title="Новая запись" />
-	<Loader v-if="loading"/>
+	<ProgressSpinner v-if="loading"/>
 
 	<Dialog header="Сейчас или позже?" v-else-if="categories.length === 0" visible>
 		<p>В настоящее время у Вас нет категорий.	Сперва необходимо создать хотя бы одну.</p>
@@ -118,7 +118,7 @@
 import {ref, onBeforeMount} from 'vue'
 import {useStore} from 'vuex'
 import Page from '@/components/ui/Page'
-import Loader from '@/components/ui/Loader'
+import ProgressSpinner from 'primevue/progressspinner'
 import {useCreateRecord} from '@/use/record-form.js' 
 import RadioButton from 'primevue/radiobutton'
 import Dropdown from 'primevue/dropdown'
@@ -128,7 +128,7 @@ import InputNumber from 'primevue/inputnumber'
 
 
 export default {
-	components: {InputText, InputNumber, Page, Dialog, Loader, RadioButton, Dropdown},
+	components: {InputText, InputNumber, Page, Dialog, ProgressSpinner, RadioButton, Dropdown},
 	setup() {
 		const store = useStore()
 		const categories = ref([])

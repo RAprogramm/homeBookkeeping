@@ -7,18 +7,21 @@
 			</template>
 		</Page>
 
-		<Loader v-if="loading"/>
+		<ProgressSpinner v-if="loading"/>
+
+		<div v-else-if="currency.error?.code === 105">Need to upgrade fixer.io subscription plan</div>
 
 		<div class="row" v-else>
-			<h2>{{$store.getters['user/info'].bill}}</h2>
 			<div class="col">
 				<div class="homeCard">
-					<home-bill :rates="currency.rates"/>
+					<ProgressSpinner v-if="!currency.rates"/>
+					<home-bill :rates="currency.rates" v-else/>
 				</div>
 			</div>
 			<div class="col">
 				<div class="homeCard">
-					<home-currency :rates="currency.rates" :date="currency.date"/>
+					<ProgressSpinner v-if="!currency.rates"/>
+					<home-currency :rates="currency.rates" :date="currency.date" v-else/>
 				</div>
 			</div>
 		</div>
@@ -29,25 +32,37 @@
 import {ref, reactive, onBeforeMount} from 'vue'
 import {useStore} from 'vuex'
 import Page from '@/components/ui/Page'
-import Loader from '@/components/ui/Loader'
+import ProgressSpinner from 'primevue/progressspinner'
 import HomeBill from '@/components/home/HomeBill'
 import HomeCurrency from '@/components/home/HomeCurrency'
 
 export default {
 	setup() {
 		const store = useStore()
-		const loading = ref(false)
-		const currency = ref({})
+		const loading = ref(true)
+		const currency = ref(null)
 
 		const refresh = async () => {
 			loading.value = true
-			currency.value = await store.dispatch('fetchCurrency')
+			await store.dispatch('fetchCurrency')
+			currency.value = store.getters['getCurrencies']
+			if(!currency.value) {
+				throw new Error(store.commit('setMessage', {
+					type: 'error',
+					value: 'Проблемы с валютным сервером. Попробуйте позднее'
+				}))
+			}
 			loading.value = false
 		}
 
 		onBeforeMount(async() => {
-			loading.value = true
-			currency.value = await store.dispatch('fetchCurrency')
+			currency.value = store.getters['getCurrencies']
+			if(!currency.value) {
+				throw new Error(store.commit('setMessage', {
+					type: 'error',
+					value: 'Обновите курс валют'
+				}))
+			}
 			loading.value = false
 		})
 
@@ -61,7 +76,7 @@ export default {
 		Page,
 		HomeBill,
 		HomeCurrency,
-		Loader
+		ProgressSpinner
 	}
 }
 </script>

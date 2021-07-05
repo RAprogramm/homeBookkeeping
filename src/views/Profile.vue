@@ -1,34 +1,44 @@
 <template>
-	<div>
-		<div class="page-title">
-			<h3>Профиль</h3>
-		</div>
+	<Page title="Профиль" />
+	<div class="newProfForm">
+		<form @submit.prevent="handleSubmit(!v$.$invalid)" class="p-fluid">
 
-		<form class="form">
-			<div class="input-field">
-				<input
-						id="description"
-						type="text"
-						>
-						<label for="description">Имя</label>
-						<span
-								class="helper-text invalid">name</span>
+			<div class="card">
+				<h5>Введите новое имя</h5>
+				<div class="p-float-label inp">
+					<InputText id="name" type="text" v-model="state.name" />
+					<label for="name">Имя</label>
+				</div>
 			</div>
 
-			<button class="btn waves-effect waves-light" type="submit">
-				Обновить
-				<i class="material-icons right">send</i>
-			</button>
+
+			<Button type="submit" label="Внести изменения" class="p-mt-2" />
 		</form>
 	</div>
 </template>
 
 <script>
-export default {
+import Page from '@/components/ui/Page'
+import InputText from 'primevue/inputtext'
+import {useEditProfile} from '@/use/profile-form'
 
+export default {
+	components: {Page, InputText},
+	setup() {
+
+		return {
+			...useEditProfile()
+		}
+	}
 }
 </script>
 
-<style>
+<style scoped>
+.inp {
+	margin-top: 2rem;
+}
+.newProfForm {
+	margin: 2rem;
+}
 
 </style>

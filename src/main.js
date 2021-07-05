@@ -4,7 +4,6 @@ import '@/registerServiceWorker'
 import router from '@/router'
 import store from '@/store'
 import { getAuth, onAuthStateChanged } from "firebase/auth"
-import tooltipDerective from '@/directives/tooltip.directive.js'
 import '@/styles.css'
 
 import 'primevue/resources/themes/saga-blue/theme.css' 

@@ -1,4 +1,5 @@
 <template>
+
 	<Page title="Планирование">
 		<template #header>
 			<div>
@@ -8,7 +9,7 @@
 		</template>
 	</Page>
 
-	<Loader v-if="loading"/>
+	<ProgressSpinner v-if="loading"/>
 
 	<Dialog header="Сейчас или позже?" v-else-if="categories.length === 0" visible>
 		<p>Сперва необходимо создать хотя бы одну категорию.</p>
@@ -19,19 +20,19 @@
 				@click="$router.push('/')" 
 				class="p-button-text"
 			/>
-				<Button 
-					label="Создать сейчас" 
-					icon="pi pi-check" 
-					@click="$router.push('/categories')" 
-					autofocus 
-				/>
+			<Button 
+				label="Создать сейчас" 
+				icon="pi pi-check" 
+				@click="$router.push('/categories')" 
+				autofocus 
+			/>
 		</template>
 	</Dialog>
 
 	<section v-else> 
-	<!-- <Panel header="График доходов/расходов" :toggleable="true" :collapsed="true"> -->
-	<!-- <Pie :data="chartData" :options="chartOptions"/> -->
-	<!-- </Panel> -->
+		<Panel header="Диаграмма" :toggleable="true" :collapsed="true">
+			<Pie :data="chartData" :options="chartOptions"/>
+		</Panel>
 		<div class="progBars">
 			<div class="card" v-for="c in categories" :key="c.id">
 				<div class="homeCard">
@@ -44,13 +45,14 @@
 			</div>
 		</div>
 	</section>
+
 </template>
 
 <script>
 import {ref, onMounted, computed} from 'vue'
 import {useStore} from 'vuex'
 import Page from '@/components/ui/Page'
-import Loader from '@/components/ui/Loader'
+import ProgressSpinner from 'primevue/progressspinner'
 import currencyFilter from '@/utils/currency'
 import Dialog from 'primevue/dialog';
 import ProgressBar from 'primevue/progressbar';
@@ -59,22 +61,12 @@ import { Pie } from 'vue-chart-3';
 
 
 export default {
-	components: {Page, Dialog, Loader, ProgressBar,
-	Panel, Pie},
+	components: {Page, Dialog, ProgressSpinner, ProgressBar, Panel, Pie},
 	setup() {
 		const store = useStore()
 		const loading = ref(true)
 		const categories = ref([])
-		const chartData = ref({
-			labels: ['A','B','C'],
-                datasets: [
-                    {
-                        data: [300, 50, 100],
-                        backgroundColor: ["#42A5F5","#66BB6A","#FFA726"],
-                        hoverBackgroundColor: ["#64B5F6","#81C784","#FFB74D"]
-                    }
-                ]
-		})
+		const chartData = ref({})
 		const chartOptions = ref({})
 
 		const bill = computed(() => store.getters['user/info'].bill)
@@ -103,6 +95,16 @@ export default {
 					tooltip
 				}
 			})
+			chartData.value = {
+				labels: categories.value.map(cat => cat.title),
+				datasets: [
+					{
+						data: categories.value.map(cat => cat.spend),
+						backgroundColor: categories.value.map(cat => `hsla(${Math.random() * 360}, 100%, 70%, 1)`),
+						hoverBackgroundColor: 'white'
+					}
+				]
+			}
 			loading.value = false
 		})
 

@@ -1,7 +1,7 @@
 <template>
 	<Page title="Категории" />
 		<section>
-			<Loader v-if="loading"/>
+			<ProgressSpinner v-if="loading"/>
 
 			<div class="row" v-else>
 				
@@ -31,12 +31,12 @@
 import {ref, onBeforeMount} from 'vue'
 import {useStore} from 'vuex'
 import Page from '@/components/ui/Page'
-import Loader from '@/components/ui/Loader'
+import ProgressSpinner from 'primevue/progressspinner'
 import CreateCategory from '@/components/categories/CreateCategory'
 import EditCategory from '@/components/categories/EditCategory'
 
 export default {
-	components: {Page, CreateCategory, EditCategory, Loader},
+	components: {Page, CreateCategory, EditCategory, ProgressSpinner},
 	setup() {
 		const store = useStore()
 		const categories = ref([])

@@ -1,5 +1,5 @@
 <template>
-	<Loader v-if="loading"/>
+	<ProgressSpinner v-if="loading"/>
 		<div v-else>
 					<div class="detailCard">
 						<Card>
@@ -45,11 +45,11 @@ import {onMounted, ref} from 'vue'
 import {useStore} from 'vuex'
 import {useRoute} from 'vue-router'
 import currencyFilter from '@/utils/currency'
-import Loader from '@/components/ui/Loader'
+import ProgressSpinner from 'primevue/progressspinner'
 import Card from 'primevue/card'
 
 export default {
-	components: {Loader, Card},
+	components: {ProgressSpinner, Card},
 	setup() {
 		const store = useStore()
 		const loading = ref(true)
