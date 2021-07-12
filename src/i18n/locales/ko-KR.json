@@ -1,0 +1,166 @@
+{
+	"Categories": {
+		"Create": {
+			"cat": "이름",
+			"catEr": "이름이 필요합니다",
+			"limit": "한도",
+			"limitEr": "제한을 지정해야 합니다.",
+			"newCat": "새 카테고리의 이름을 입력하세요.",
+			"newLimit": "새 카테고리의 한계 지정",
+			"submit": "카테고리 생성",
+			"title": "창조하다"
+		},
+		"Edit": {
+			"cat": "범주",
+			"catEr": "범주를 선택해야 합니다.",
+			"chooseCat": "범주 선택",
+			"chooseLimit": "범주에 대한 새 제한 지정",
+			"limit": "한도",
+			"limitEr": "제한을 지정해야합니다.",
+			"newCatName": "범주에 대한 새 이름 입력",
+			"newName": "이름",
+			"newNameEr": "이름이 필요합니다",
+			"submit": "업데이트 범주",
+			"title": "편집하다"
+		},
+		"text": "아직 카테고리를 만들지 않았습니다.",
+		"title": "범주"
+	},
+	"DetailRecord": {
+		"buttonHist": "역사로 돌아 가기",
+		"inc": "수입",
+		"infoAbout": "정보",
+		"out": "소비"
+	},
+	"History": {
+		"Chart": {
+			"income": "수입",
+			"outcome": "소비",
+			"tooltip": "오늘의 합계 :"
+		},
+		"DataTable": {
+			"amountCol": "금액",
+			"catCol": "범주",
+			"dateCol": "날짜",
+			"detail": "자세한 내용은",
+			"loading": "데이터로드 중. 잠시만 기다려주세요 ...",
+			"null": "항목 없음",
+			"typeCol": "종류"
+		},
+		"panel1": "수입 / 비용 그래프",
+		"panel2": "표",
+		"title": "모든 항목의 역사"
+	},
+	"Home": {
+		"Bill": {
+			"btc": "비트 코인 : ",
+			"desc": "*이 변환은 정보 제공 목적으로 만 사용됩니다.",
+			"eur": "유로: ",
+			"krw": "한국 원화 : ",
+			"rub": "러시아 루블 : ",
+			"thb": "태국 엉덩이 :",
+			"title": "외화 계좌",
+			"usd": "미국 달러:"
+		},
+		"Currency": {
+			"codeCol": "통화",
+			"desc": "* 유로와 관련된 환율",
+			"rateCol": "환율",
+			"subtitle": "마지막 업데이트",
+			"title": "환율"
+		},
+		"title": "계좌",
+		"updateRate": "환율 업데이트"
+	},
+	"Login": {
+		"button": "로그인",
+		"e-m": "이메일",
+		"emEr2": "이메일 주소 필요",
+		"email": "당신의 이메일 주소를 입력하십시오",
+		"emailEr": "유효한 이메일 주소를 입력하세요",
+		"noAc": "계정 없음?",
+		"passEr": "비밀번호 필요",
+		"passMin": "비밀번호는 최소한",
+		"passwd": "암호",
+		"password": "비밀번호 입력",
+		"reg": "등록하려면",
+		"simbols": "문자",
+		"title": "주택 회계"
+	},
+	"Menu": {
+		"exit": "로그 아웃",
+		"nav": "항해",
+		"set": "설정",
+		"tooltip": "메뉴"
+	},
+	"Page": {
+		"mainTitle": "홈 부기"
+	},
+	"Planning": {
+		"Dialog": {
+			"header": "지금 아니면 나중에?",
+			"no": "지금은 아니야",
+			"text": "먼저 카테고리를 하나 이상 만들어야합니다.",
+			"yes": "지금 만들기"
+		},
+		"Panel": {
+			"header": "도표"
+		},
+		"header": "귀하의 계정 :",
+		"outOf": "의",
+		"title": "계획",
+		"tooltip+": "초과",
+		"tooltip-": "왼쪽"
+	},
+	"Profile": {
+		"chooseLang": "언어 선택",
+		"lang": "혀",
+		"nEr": "필드를 비우지 않을 수 없습니다.",
+		"name": "이름",
+		"newName": "새 이름을 입력하세요",
+		"submit": "변화시키다",
+		"title": "프로필"
+	},
+	"Record": {
+		"Dialog": {
+			"header": "지금 아니면 나중에?",
+			"no": "지금은 아니야",
+			"text": "현재 카테고리가 없습니다. 먼저 적어도 하나를 만들어야합니다.",
+			"yes": "지금 만들기"
+		},
+		"amount": "금액",
+		"amountEr": "금액을 입력해야합니다",
+		"catEr": "카테고리를 선택해야합니다",
+		"category": "범주",
+		"chooseCat": "카테고리 선택",
+		"chooseType": "녹화 유형 선택",
+		"dataRec": "데이터 입력",
+		"description": "설명",
+		"income": "수입",
+		"outcome": "소비",
+		"submit": "레코드 만들기",
+		"title": "새로운 항목"
+	},
+	"Register": {
+		"acc": "계좌",
+		"accEr": "송장을 입력해야합니다.",
+		"bill": "시작하려는 금액을 입력하세요.",
+		"check": "등록을 확인합니다",
+		"entName": "당신의 이름을 입력",
+		"have": "나는 이미 계정을 갖고있다!",
+		"name": "이름",
+		"nameEr": "이름을 입력해야 함",
+		"reg": "등록",
+		"repEr": "비밀번호가 일치해야 함",
+		"repeat": "비밀번호 반복",
+		"title": "등록"
+	},
+	"Sidebar": {
+		"account": "계좌",
+		"cat": "범주",
+		"hist": "역사",
+		"plan": "계획",
+		"rec": "새로운 항목",
+		"tooltip": "내비게이션 바"
+	}
+}
