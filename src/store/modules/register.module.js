@@ -5,7 +5,7 @@ import {doc, collection, setDoc} from 'firebase/firestore'
 export default {
 	namespaced: true,
 	actions: {
-		async createUser({commit}, {email, password, name, bill}) {
+		async createUser({commit}, {email, password, name, bill, language}) {
 			const auth = getAuth()
 			await createUserWithEmailAndPassword(auth, email, password)
 				.then(async(userCredential) => {
@@ -15,7 +15,8 @@ export default {
 					await setDoc(authUserInfo, {
 						name,
 						email,
-						bill
+						bill,
+						language
 					})
 					commit('setMessage', {
 						value: `Пользователь ${name} был создан! Теперь вы можете войти в систему`,

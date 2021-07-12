@@ -50,25 +50,6 @@ export default {
 					type: 'error'
 				}, {root: true})
 			}
-		},
-		async updateProfile({commit, getters}, {name}) {
-			try {
-				const user = await getAuth().currentUser
-				const userData = await doc(collection(db, 'users'), user.uid)
-				const userInfo = await doc(collection(userData, 'info'), 'about')
-				const updateData = {...getters.info, name}
-				await updateDoc(userInfo, updateData, {merge: true})
-				commit('setInfo', updateData)
-				commit('setMessage', {
-					value: `Ваше имя изменено на "${name}"`,
-					type: 'success'
-				}, {root: true})
-			} catch (error) {
-				commit('setMessage', {
-					value: error.message,
-					type: 'error'
-				}, {root: true})
-			}
 		}
 	},
 	getters: {

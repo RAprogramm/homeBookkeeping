@@ -1,0 +1,166 @@
+{
+	"Categories": {
+		"Create": {
+			"cat": "Title",
+			"catEr": "It is necessary to specify the name",
+			"limit": "Limit",
+			"limitEr": "It is necessary to specify the limit",
+			"newCat": "Enter the name of the new category",
+			"newLimit": "Specify the new category limit",
+			"submit": "Create a category",
+			"title": "Create"
+		},
+		"Edit": {
+			"cat": "Category",
+			"catEr": "You need to select a category",
+			"chooseCat": "Choose a category",
+			"chooseLimit": "Specify a new category limit",
+			"limit": "Limit",
+			"limitEr": "It is necessary to specify the limit",
+			"newCatName": "Enter a new name for the category",
+			"newName": "Title",
+			"newNameEr": "It is necessary to specify the name",
+			"submit": "Update category",
+			"title": "Edit"
+		},
+		"text": "You haven't created any categories yet",
+		"title": "Categories"
+	},
+	"DetailRecord": {
+		"buttonHist": "Back to history",
+		"inc": "income",
+		"infoAbout": "Information about",
+		"out": "consumption"
+	},
+	"History": {
+		"Chart": {
+			"income": "Revenue",
+			"outcome": "Consumption",
+			"tooltip": "Total for the day:"
+		},
+		"DataTable": {
+			"amountCol": "Amount",
+			"catCol": "Category",
+			"dateCol": "Date",
+			"detail": "Details",
+			"loading": "Loading data. Please wait...",
+			"null": "No records",
+			"typeCol": "Type"
+		},
+		"panel1": "Income/Expense schedule",
+		"panel2": "Table",
+		"title": "History of all entries"
+	},
+	"Home": {
+		"Bill": {
+			"btc": "Bitcoin: ",
+			"desc": "* This conversion is for informational purposes only",
+			"eur": "Euro: ",
+			"krw": "South Korean won: ",
+			"rub": "Russian ruble: ",
+			"thb": "Thai Batt:",
+			"title": "Account in a foreign currency",
+			"usd": "U.S. Dollar: "
+		},
+		"Currency": {
+			"codeCol": "Currency",
+			"desc": "* Exchange rate in relation to Euro",
+			"rateCol": "Rates",
+			"subtitle": "Last Update",
+			"title": "Exchange Rates"
+		},
+		"title": "Account",
+		"updateRate": "Update currency rates"
+	},
+	"Login": {
+		"button": "Sign in",
+		"e-m": "E-mail",
+		"emEr2": "You must enter an email address",
+		"email": "Enter your email address",
+		"emailEr": "Please enter a valid email address",
+		"noAc": "No account?",
+		"passEr": "You must enter the password",
+		"passMin": "The password must consist of at least",
+		"passwd": "Password",
+		"password": "Enter your password",
+		"reg": "Sign up",
+		"simbols": "characters",
+		"title": "Home bookkeeping"
+	},
+	"Menu": {
+		"exit": "Log out",
+		"nav": "Navigation",
+		"set": "Settings",
+		"tooltip": "Menu"
+	},
+	"Page": {
+		"mainTitle": "Home bookkeeping"
+	},
+	"Planning": {
+		"Dialog": {
+			"header": "Now or later?",
+			"no": "Not now",
+			"text": "First, you need to create at least one category.",
+			"yes": "Create now"
+		},
+		"Panel": {
+			"header": "Chart"
+		},
+		"header": "On your account:",
+		"outOf": "out of",
+		"title": "Planning",
+		"tooltip+": "Excess on",
+		"tooltip-": "Remaining"
+	},
+	"Profile": {
+		"chooseLang": "Choose your language",
+		"lang": "Language",
+		"nEr": "The field can't be empty",
+		"name": "Name",
+		"newName": "Enter a new name",
+		"submit": "Make Changes",
+		"title": "Profile"
+	},
+	"Record": {
+		"Dialog": {
+			"header": "Now or later?",
+			"no": "Not now",
+			"text": "You don't currently have categories. First, you need to create at least one.",
+			"yes": "Create now"
+		},
+		"amount": "Amount",
+		"amountEr": "You need to enter the amount of",
+		"catEr": "You need to select a category",
+		"category": "Category",
+		"chooseCat": "Choose a category",
+		"chooseType": "Select record type",
+		"dataRec": "Enter your details",
+		"description": "Description",
+		"income": "Revenue",
+		"outcome": "Consumption",
+		"submit": "Create an entry",
+		"title": "New Entry"
+	},
+	"Register": {
+		"acc": "Account",
+		"accEr": "You must enter an invoice",
+		"bill": "Enter the amount you want to start with",
+		"check": "I confirm the registration",
+		"entName": "Enter a name",
+		"have": "I already have an account!",
+		"name": "Name",
+		"nameEr": "You must enter the name",
+		"reg": "Register",
+		"repEr": "Password must match",
+		"repeat": "Repeat password",
+		"title": "Register"
+	},
+	"Sidebar": {
+		"account": "Account",
+		"cat": "Categories",
+		"hist": "History",
+		"plan": "Planning",
+		"rec": "New Entry",
+		"tooltip": "Navigation Bar"
+	}
+}

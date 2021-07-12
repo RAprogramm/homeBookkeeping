@@ -1,12 +1,14 @@
-import {useStore} from 'vuex'
-import {useRouter} from 'vue-router'
-import {reactive, ref, computed, watch} from 'vue'
-import { email, required, minLength, sameAs } from "@vuelidate/validators"
-import { useVuelidate } from "@vuelidate/core"
+import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
+import { reactive, ref, computed, watch } from 'vue'
+import { email, required, minLength, sameAs } from '@vuelidate/validators'
+import { useVuelidate } from '@vuelidate/core'
+import { useI18n } from 'vue-i18n'
 
 export function useRegisterForm() {
 	const router = useRouter()
 	const store = useStore()
+	const i18n = useI18n()
 
 	const state = reactive({
 		email: null,
@@ -20,23 +22,23 @@ export function useRegisterForm() {
 	const rules = reactive({
 		email: { required, email },
 		password: { required, minLength: minLength(6) },
-		repeatPassword: {sameAsPassword: sameAs(computed(() => state.password))},
-		name: {required},
-		bill: {required},
-		accept: {required}
+		repeatPassword: { sameAsPassword: sameAs(computed(() => state.password)) },
+		name: { required },
+		bill: { required },
+		accept: { required }
 	})
 
-	const submitted = ref(false);
+	const submitted = ref(false)
 
-	const v$ = useVuelidate(rules, state);
+	const v$ = useVuelidate(rules, state)
 
 	const handleSubmit = (isFormValid) => {
 		if (isFormValid) {
 			onSubmit(state)
 			resetForm()
-		}	else {
-			submitted.value = true;
-			return;
+		} else {
+			submitted.value = true
+			return
 		}
 	}
 
@@ -50,15 +52,15 @@ export function useRegisterForm() {
 		submitted.value = false
 	}
 
- 	const onSubmit = (async values => {
+	const onSubmit = async (values) => {
 		try {
-			console.log(values)
-			await store.dispatch('register/createUser', values)
+			const data = { ...values, language: i18n.locale.value }
+			await store.dispatch('register/createUser', data)
 			router.push('/login')
 		} catch (e) {}
-	})
+	}
 
- 	return {
+	return {
 		handleSubmit,
 		submitted,
 		v$
