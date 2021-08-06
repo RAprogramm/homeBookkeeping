@@ -17,11 +17,14 @@ import { useI18n } from 'vue-i18n'
 
 export default {
 	setup() {
-		const i18n = useI18n()
+		
+		const { t } = useI18n()
 		const pageTitle = ref(null)
 		watchEffect(
 			() => {
-				document.title = `${pageTitle.value.textContent} | ${i18n.t('Page.mainTitle')}`
+				document.title = `${pageTitle.value.textContent} | ${t(
+					'Page.mainTitle'
+				)}`
 			},
 			{
 				flush: 'post'

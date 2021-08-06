@@ -16,11 +16,11 @@
 					/>
 				</template>
 				<template #title>
-					{{ t('DetailRecord.infoAbout') }}
+					{{ $t('DetailRecord.infoAbout') }}
 					{{
 						record.type === 'income'
-							? t('DetailRecord.inc')
-							: t('DetailRecord.out')
+							? $t('DetailRecord.inc')
+							: $t('DetailRecord.out')
 					}}
 				</template>
 				<template #subtitle>
@@ -28,15 +28,15 @@
 				</template>
 				<template #content>
 					<p>
-						<strong>{{ t('Record.description') }}: </strong
+						<strong>{{ $t('Record.description') }}: </strong
 						>{{ record.description }}
 					</p>
 					<p>
-						<strong>{{ t('Record.amount') }}: </strong
+						<strong>{{ $t('Record.amount') }}: </strong
 						>{{ currencyFilter(record.amount) }}
 					</p>
 					<p>
-						<strong>{{ t('Record.category') }}: </strong
+						<strong>{{ $t('Record.category') }}: </strong
 						>{{ record.categoryName }}
 					</p>
 				</template>
@@ -45,10 +45,10 @@
 						icon="pi pi-list"
 						label="label"
 						class="p-button-secondary"
-						@click="$router.push('/history')"
+						@click="$router.push({ name: 'History' })"
 					>
 						<span class="p-button-label">{{
-							t('DetailRecord.buttonHist')
+							$t('DetailRecord.buttonHist')
 						}}</span>
 					</Button>
 					<!-- <Button icon="pi pi-check" label="Save" style="margin-left: .5em"/> -->
@@ -65,7 +65,6 @@ import { useRoute } from 'vue-router'
 import currencyFilter from '@/utils/currency'
 import ProgressSpinner from 'primevue/progressspinner'
 import Card from 'primevue/card'
-import { useI18n } from 'vue-i18n'
 
 export default {
 	components: { ProgressSpinner, Card },
@@ -103,7 +102,6 @@ export default {
 			loading.value = false
 		})
 		return {
-			...useI18n(),
 			currencyFilter,
 			loading,
 			record

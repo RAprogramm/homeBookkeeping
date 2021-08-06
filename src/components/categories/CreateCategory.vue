@@ -1,11 +1,11 @@
 <template>
 	<div class="page-subtitle">
-		<h4>{{ t('Categories.Create.title') }}</h4>
+		<h4>{{ $t('Categories.Create.title') }}</h4>
 	</div>
 
 	<form @submit.prevent="handleSubmit(!v$.$invalid)" class="p-fluid">
 		<div class="card">
-			<h6>{{ t('Categories.Create.newCat') }}</h6>
+			<h6>{{ $t('Categories.Create.newCat') }}</h6>
 			<div class="p-float-label inp">
 				<InputText
 					id="title"
@@ -16,16 +16,16 @@
 				<label
 					:class="{ 'p-error': v$.title.$invalid && submitted }"
 					for="title"
-					>{{ t('Categories.Create.cat') }}</label
+					>{{ $t('Categories.Create.cat') }}</label
 				>
 			</div>
 			<small
 				v-if="(v$.title.$invalid && submitted) || v$.title.$pending.$response"
 				class="p-error"
 			>
-				{{ t('Categories.Create.catEr') }}
+				{{ $t('Categories.Create.catEr') }}
 			</small>
-			<h6>{{ t('Categories.Create.newLimit') }}</h6>
+			<h6>{{ $t('Categories.Create.newLimit') }}</h6>
 			<div class="p-float-label inp">
 				<InputNumber
 					id="limit"
@@ -38,25 +38,24 @@
 				<label
 					:class="{ 'p-error': v$.limit.$invalid && submitted }"
 					for="amount"
-					>{{ t('Categories.Create.limit') }}</label
+					>{{ $t('Categories.Create.limit') }}</label
 				>
 			</div>
 			<small
 				v-if="(v$.limit.$invalid && submitted) || v$.limit.$pending.$response"
 				class="p-error"
 			>
-				{{ t('Categories.Create.limitEr') }}
+				{{ $t('Categories.Create.limitEr') }}
 			</small>
 		</div>
 
 		<Button type="submit" label="Создать категорию" class="p-mt-2">
-			<span class="p-button-label">{{ t('Categories.Create.submit') }}</span>
+			<span class="p-button-label">{{ $t('Categories.Create.submit') }}</span>
 		</Button>
 	</form>
 </template>
 
 <script>
-import { useI18n } from 'vue-i18n'
 import { reactive, ref } from 'vue'
 import { useStore } from 'vuex'
 import InputNumber from 'primevue/inputnumber'
@@ -86,7 +85,6 @@ export default {
 
 		const handleSubmit = (isFormValid) => {
 			if (isFormValid) {
-				console.log(state)
 				onSubmit(state)
 				resetForm()
 			} else {
@@ -112,8 +110,7 @@ export default {
 			handleSubmit,
 			state,
 			v$,
-			submitted,
-			...useI18n()
+			submitted
 		}
 	}
 }

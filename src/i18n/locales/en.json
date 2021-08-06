@@ -1,4 +1,20 @@
 {
+	"Toast": {
+		"success": "Success!",
+		"error": "Error!",
+		"warn": "Warning!",
+		"logedIn": "Вы вошли в систему",
+		"createCat": "Категория добавлена!",
+		"updateCat": "Категория обновлена!",
+		"createRec": "Запись добавлена!",
+		"createUser": "Регистрация прошла успешно! Теперь Вы можете войти в систему",
+		"info": "Information"
+	},
+	"Errors": {
+		"auth": "Please enter your E-mail and password",
+		"logout": "You are logged out",
+		"undefind": "Unknown error"
+	},
 	"Categories": {
 		"Create": {
 			"cat": "Title",
@@ -142,6 +158,11 @@
 		"title": "New Entry"
 	},
 	"Register": {
+		"currency": "What currency will the entries be made in?",
+		"curEr": "Currency must be specified",
+		"rub": "Russian ruble",
+		"usd": "U.S. dollar",
+		"krw": "South Korean won",
 		"acc": "Account",
 		"accEr": "You must enter an invoice",
 		"bill": "Enter the amount you want to start with",

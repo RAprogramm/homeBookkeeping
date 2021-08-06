@@ -17,7 +17,7 @@ export default {
 		}
 	},
 	setup(props) {
-		const i18n = useI18n()
+		const { t } = useI18n()
 
 		const classesMap = {
 			income: 'primary',
@@ -25,8 +25,8 @@ export default {
 		}
 
 		const textMap = {
-			income: i18n.t('History.Chart.income'),
-			outcome: i18n.t('History.Chart.outcome')
+			income: t('History.Chart.income'),
+			outcome: t('History.Chart.outcome')
 		}
 
 		watch(props, (val) => {

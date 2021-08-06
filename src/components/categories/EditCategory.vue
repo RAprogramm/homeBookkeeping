@@ -1,10 +1,10 @@
 <template>
 	<div class="page-subtitle">
-		<h4>{{ t('Categories.Edit.title') }}</h4>
+		<h4>{{ $t('Categories.Edit.title') }}</h4>
 	</div>
 	<form @submit.prevent="handleSubmit(!v$.$invalid)" class="p-fluid">
 		<div class="card">
-			<h6>{{ t('Categories.Edit.chooseCat') }}</h6>
+			<h6>{{ $t('Categories.Edit.chooseCat') }}</h6>
 			<div class="p-field">
 				<div class="p-float-label inp">
 					<Dropdown
@@ -18,7 +18,7 @@
 					<label
 						for="category"
 						:class="{ 'p-error': v$.category.$invalid && submitted }"
-						>{{ t('Categories.Edit.cat') }}</label
+						>{{ $t('Categories.Edit.cat') }}</label
 					>
 				</div>
 			</div>
@@ -28,11 +28,11 @@
 				"
 				class="p-error"
 			>
-				{{ t('Categories.Edit.catEr') }}
+				{{ $t('Categories.Edit.catEr') }}
 			</small>
 		</div>
 		<div class="card">
-			<h6>{{ t('Categories.Edit.newCatName') }}</h6>
+			<h6>{{ $t('Categories.Edit.newCatName') }}</h6>
 			<div class="p-float-label inp">
 				<InputText
 					:disabled="!category"
@@ -44,16 +44,16 @@
 				<label
 					:class="{ 'p-error': v$.title.$invalid && submitted }"
 					for="title"
-					>{{ t('Categories.Edit.newName') }}</label
+					>{{ $t('Categories.Edit.newName') }}</label
 				>
 			</div>
 			<small
 				v-if="(v$.title.$invalid && submitted) || v$.title.$pending.$response"
 				class="p-error"
 			>
-				{{ t('Categories.Edit.newNameEr') }}
+				{{ $t('Categories.Edit.newNameEr') }}
 			</small>
-			<h6>{{ t('Categories.Edit.chooseLimit') }}</h6>
+			<h6>{{ $t('Categories.Edit.chooseLimit') }}</h6>
 			<div class="p-float-label inp">
 				<InputNumber
 					:disabled="!category"
@@ -67,25 +67,24 @@
 				<label
 					:class="{ 'p-error': v$.limit.$invalid && submitted }"
 					for="limit"
-					>{{ t('Categories.Edit.limit') }}</label
+					>{{ $t('Categories.Edit.limit') }}</label
 				>
 			</div>
 			<small
 				v-if="(v$.limit.$invalid && submitted) || v$.limit.$pending.$response"
 				class="p-error"
 			>
-				{{ t('Categories.Edit.limitEr') }}
+				{{ $t('Categories.Edit.limitEr') }}
 			</small>
 		</div>
 
 		<Button type="submit" class="p-mt-2">
-			<span class="p-button-label">{{ t('Categories.Edit.submit') }}</span>
+			<span class="p-button-label">{{ $t('Categories.Edit.submit') }}</span>
 		</Button>
 	</form>
 </template>
 
 <script>
-import { useI18n } from 'vue-i18n'
 import { useStore } from 'vuex'
 import { watch, reactive, ref } from 'vue'
 import InputNumber from 'primevue/inputnumber'
@@ -151,7 +150,6 @@ export default {
 		})
 
 		return {
-			...useI18n(),
 			category,
 			handleSubmit,
 			state,

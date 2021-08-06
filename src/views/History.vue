@@ -49,13 +49,11 @@
 
 				<Column
 					field="amount"
+					:header="t('History.DataTable.amountCol')"
 					sortable
 					dataType="numeric"
 					style="min-width: 8rem"
 				>
-					<template #header>
-						<strong>{{ t('History.DataTable.amountCol') }}</strong>
-					</template>
 					<template #body="{data}">
 						{{ formatCurrency(data.amount) }}
 					</template>
@@ -70,10 +68,12 @@
 					</template>
 				</Column>
 
-				<Column field="categoryName" sortable style="min-width: 8rem">
-					<template #header>
-						<strong>{{ t('History.DataTable.catCol') }}</strong>
-					</template>
+				<Column
+					:header="t('History.DataTable.catCol')"
+					field="categoryName"
+					sortable
+					style="min-width: 8rem"
+				>
 					<template #body="{data}">
 						{{ data.categoryName }}
 					</template>
@@ -88,10 +88,13 @@
 					</template>
 				</Column>
 
-				<Column field="date" sortable dataType="date" style="min-width: 8rem">
-					<template #header>
-						<strong>{{ t('History.DataTable.dateCol') }}</strong>
-					</template>
+				<Column
+					:header="t('History.DataTable.dateCol')"
+					field="date"
+					sortable
+					dataType="date"
+					style="min-width: 8rem"
+				>
 					<template #body="{data}">
 						{{ formatDate(data.date) }}
 					</template>
@@ -105,14 +108,12 @@
 				</Column>
 
 				<Column
+					:header="t('History.DataTable.typeCol')"
 					field="type"
 					sortable
 					:filterMenuStyle="{ width: '14rem' }"
 					style="min-width: 10rem"
 				>
-					<template #header>
-						<strong>{{ t('History.DataTable.typeCol') }}</strong>
-					</template>
 					<template #body="{data}">
 						<Status :type="data.type" />
 					</template>
@@ -136,7 +137,7 @@
 							v-tooltip.left="t('History.DataTable.detail')"
 							type="button"
 							icon="pi pi-search"
-							@click="$router.push('/detail/' + data.id)"
+							@click="$router.push('detail/' + data.id)"
 						/>
 					</template>
 				</Column>

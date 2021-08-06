@@ -1,42 +1,42 @@
 <template>
 	<Page>
 		<template #title>
-			{{ t('Record.title') }}
+			{{ $t('Record.title') }}
 		</template>
 	</Page>
-	<ProgressSpinner v-if="loading" />
+	<!-- <ProgressSpinner v-if="loading" /> -->
 
-	<Dialog v-else-if="categories.length === 0" visible>
-		<template #header>
-			<h3>{{ t('Record.Dialog.header') }}</h3>
-		</template>
-		<p>
-			{{ t('Record.Dialog.text') }}
-		</p>
-		<template #footer>
-			<Button
-				label="label"
-				icon="pi pi-times"
-				@click="$router.push('/')"
-				class="p-button-text"
-			>
-				<span class="p-button-label">{{ t('Record.Dialog.no') }}</span>
-			</Button>
-			<Button
-				label="label"
-				icon="pi pi-check"
-				@click="$router.push('/categories')"
-				autofocus
-			>
-				<span class="p-button-label">{{ t('Record.Dialog.yes') }}</span>
-			</Button>
-		</template>
-	</Dialog>
+	<!-- <Dialog v-else-if="categories.length === 0" visible> -->
+	<!-- 	<template #header> -->
+	<!-- 		<h3>{{ $t('Record.Dialog.header') }}</h3> -->
+	<!-- 	</template> -->
+	<!-- 	<p> -->
+	<!-- 		{{ $t('Record.Dialog.text') }} -->
+	<!-- 	</p> -->
+	<!-- 	<template #footer> -->
+	<!-- 		<Button -->
+	<!-- 			label="label" -->
+	<!-- 			icon="pi pi-times" -->
+	<!-- 			@click="$router.push('/')" -->
+	<!-- 			class="p-button-text" -->
+	<!-- 		> -->
+	<!-- 			<span class="p-button-label">{{ $t('Record.Dialog.no') }}</span> -->
+	<!-- 		</Button> -->
+	<!-- 		<Button -->
+	<!-- 			label="label" -->
+	<!-- 			icon="pi pi-check" -->
+	<!-- 			@click="$router.push('/categories')" -->
+	<!-- 			autofocus -->
+	<!-- 		> -->
+	<!-- 			<span class="p-button-label">{{ $t('Record.Dialog.yes') }}</span> -->
+	<!-- 		</Button> -->
+	<!-- 	</template> -->
+	<!-- </Dialog> -->
 
-	<div v-else class="newRecForm">
+	<div class="newRecForm">
 		<form @submit.prevent="handleSubmit(!v$.$invalid)" class="p-fluid">
 			<div class="card">
-				<h5>{{ t('Record.chooseCat') }}</h5>
+				<h5>{{ $t('Record.chooseCat') }}</h5>
 				<div class="p-field">
 					<div class="p-float-label inp">
 						<Dropdown
@@ -49,7 +49,7 @@
 						<label
 							for="category"
 							:class="{ 'p-error': v$.category.$invalid && submitted }"
-							>{{ t('Record.category') }}</label
+							>{{ $t('Record.category') }}</label
 						>
 					</div>
 				</div>
@@ -60,12 +60,12 @@
 					"
 					class="p-error"
 				>
-					{{ t('Record.catEr') }}
+					{{ $t('Record.catEr') }}
 				</small>
 			</div>
 
 			<div class="card">
-				<h5>{{ t('Record.chooseType') }}</h5>
+				<h5>{{ $t('Record.chooseType') }}</h5>
 				<div class="p-field-radiobutton inp">
 					<RadioButton
 						id="type"
@@ -78,7 +78,7 @@
 						:class="{ 'p-error': v$.type.$invalid && submitted }"
 						for="type"
 					>
-						{{ t('Record.income') }}</label
+						{{ $t('Record.income') }}</label
 					>
 				</div>
 				<div class="p-field-radiobutton inp">
@@ -93,13 +93,13 @@
 						:class="{ 'p-error': v$.type.$invalid && submitted }"
 						for="type2"
 					>
-						{{ t('Record.outcome') }}</label
+						{{ $t('Record.outcome') }}</label
 					>
 				</div>
 			</div>
 
 			<div class="card">
-				<h5>{{ t('Record.dataRec') }}</h5>
+				<h5>{{ $t('Record.dataRec') }}</h5>
 				<div class="p-float-label inp">
 					<InputNumber
 						id="amount"
@@ -112,7 +112,7 @@
 					<label
 						:class="{ 'p-error': v$.amount.$invalid && submitted }"
 						for="amount"
-						>{{ t('Record.amount') }}</label
+						>{{ $t('Record.amount') }}</label
 					>
 				</div>
 				<small
@@ -121,17 +121,17 @@
 					"
 					class="p-error"
 				>
-					{{ t('Record.amountEr') }}
+					{{ $t('Record.amountEr') }}
 				</small>
 
 				<div class="p-float-label inp">
 					<InputText id="description" type="text" v-model="state.description" />
-					<label for="description">{{ t('Record.description') }}</label>
+					<label for="description">{{ $t('Record.description') }}</label>
 				</div>
 			</div>
 
 			<Button type="submit" class="p-mt-2">
-				<span class="p-button-label">{{ t('Record.submit') }}</span>
+				<span class="p-button-label">{{ $t('Record.submit') }}</span>
 			</Button>
 		</form>
 	</div>
@@ -148,7 +148,6 @@ import Dropdown from 'primevue/dropdown'
 import Dialog from 'primevue/dialog'
 import InputText from 'primevue/inputtext'
 import InputNumber from 'primevue/inputnumber'
-import { useI18n } from 'vue-i18n'
 
 export default {
 	components: {
@@ -171,7 +170,6 @@ export default {
 		})
 
 		return {
-			...useI18n(),
 			...useCreateRecord(),
 			loading,
 			categories

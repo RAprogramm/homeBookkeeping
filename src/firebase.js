@@ -1,14 +1,14 @@
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { initializeApp } from 'firebase/app'
+import { getFirestore } from 'firebase/firestore'
 
 const firebaseConfig = {
-	apiKey: "AIzaSyD4iJl4Bh_zBJv7iGwdOYwqz0Uk-MX3r9s",
-	authDomain: "ra-home-bookkeeping.firebaseapp.com",
-	projectId: "ra-home-bookkeeping",
-	storageBucket: "ra-home-bookkeeping.appspot.com",
-	messagingSenderId: "13557178450",
-	appId: "1:13557178450:web:0d305fae24e3de6c1a3f8b",
-};
+	apiKey: process.env.VUE_APP_FIREBASE_API_KEY,
+	authDomain: process.env.VUE_APP_FIREBASE_AUTH_DOMAIN,
+	projectId: process.env.VUE_APP_FIREBASE_PROJECT_ID,
+	storageBucket: process.env.VUE_APP_FIREBASE_STORAGE_BUCKET,
+	messagingSenderId: process.env.VUE_APP_FIREBASE_MESS_SEND_ID,
+	appId: process.env.VUE_APP_FIREBASE_APP_ID
+}
 
-export const firebase = initializeApp(firebaseConfig);
-export const db = getFirestore();
+export const firebase = initializeApp(firebaseConfig)
+export const db = getFirestore()

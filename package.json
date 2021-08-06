@@ -1,31 +1,29 @@
 {
-  "name": "vue3-crm",
+  "name": "homebookkeeping",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "i18n:report": "vue-cli-service i18n:report --src \"./src/**/*.?(js|vue)\" --locales \"./src/locales/**/*.json\""
+    "i18n:report": "vue-cli-service i18n:report --src \"./src/**/*.?(js|vue)\" --locales \"./src/i18n/locales/*.json\""
   },
   "dependencies": {
-    "@vuelidate/core": "^2.0.0-alpha.19",
-    "@vuelidate/validators": "^2.0.0-alpha.17",
-    "chart.js": "^3.4.0",
+    "@vuelidate/core": "^2.0.0-alpha.22",
+    "@vuelidate/validators": "^2.0.0-alpha.19",
+    "chart.js": "^3.5.0",
     "chartjs-adapter-luxon": "^1.0.0",
-    "core-js": "^3.6.5",
-    "firebase": "9.0.0-beta.1",
-    "luxon": "^1.27.0",
+    "core-js": "^3.16.0",
+    "firebase": "^9.0.0-beta.1",
+    "luxon": "^2.0.1",
     "mitt": "^3.0.0",
     "primeicons": "^4.1.0",
-    "primevue": "^3.5.1",
+    "primevue": "^3.6.0",
     "register-service-worker": "^1.7.1",
-    "vee-validate": "next",
     "vue": "^3.0.0",
-    "vue-chart-3": "^0.2.0",
+    "vue-chart-3": "^0.5.7",
     "vue-i18n": "^9.1.0",
     "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0",
-    "yup": "^0.32.9"
+    "vuex": "^4.0.0-0"
   },
   "devDependencies": {
     "@intlify/vue-i18n-loader": "next",
@@ -34,7 +32,7 @@
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.0",
-    "vue-cli-plugin-i18n": "~2.1.1"
+    "@vue/compiler-sfc": "^3.1.5",
+    "vue-cli-plugin-i18n": "^2.1.2"
   }
 }

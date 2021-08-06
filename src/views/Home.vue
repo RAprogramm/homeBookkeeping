@@ -1,14 +1,21 @@
 <template>
 	<Page>
 		<template #title>
-			{{ t('Home.title') }}
+			{{ $t('Home.title') }}
 		</template>
 		<template #header>
-			<Button @click="refresh" v-tooltip="t('Home.updateRate')">
+			<Button @click="refresh" v-tooltip="$t('Home.updateRate')">
 				<i class="pi pi-refresh" style="fontSize: 1.3rem" />
 			</Button>
 		</template>
 	</Page>
+
+	<div class="errorFixer">
+		<br />
+		vremenno kolom
+		<br />
+		this part will be realized later
+	</div>
 
 	<ProgressSpinner v-if="loading" />
 
@@ -76,7 +83,6 @@ export default {
 		})
 
 		return {
-			...useI18n(),
 			refresh,
 			loading,
 			currency

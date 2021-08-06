@@ -1,15 +1,19 @@
 <template>
 	<div class="auth-layout">
-		<Language />
-		<router-view />
+		<auth-language />
+		<router-view v-slot="{ Component, route }">
+			<transition :name="route.meta.transition || 'fade'" mode="out-in">
+				<component :is="Component" :key="route.path" />
+			</transition>
+		</router-view>
 	</div>
 </template>
 
 <script>
-import Language from '@/components/ui/Language'
+import AuthLanguage from '@/components/ui/AuthLanguage'
 
 export default {
-	components: { Language }
+	components: { AuthLanguage }
 }
 </script>
 
