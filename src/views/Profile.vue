@@ -81,7 +81,6 @@ export default {
     const globalLocale = useI18n().locale;
     const store = useStore();
     const userLang = computed(() => store.getters['user/info'].language);
-    console.log('provero4ka', test);
 
     watch(userLang, (val) => {
       globalLocale.value = userLang.value;

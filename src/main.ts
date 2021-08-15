@@ -35,7 +35,7 @@ const i18n = setupI18n({
 
 const router = setupRouter(i18n)
 
-	let app
+let app
 
 getAuth().onAuthStateChanged(() => {
 	if (!app) {
