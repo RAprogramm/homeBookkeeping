@@ -17,8 +17,8 @@ module.exports = {
       enableLegacy: false,
       runtimeOnly: false,
       compositionOnly: true,
-      fullInstall: true,
-    },
+      fullInstall: true
+    }
   },
 
   chainWebpack: (config) => {
@@ -27,11 +27,11 @@ module.exports = {
       .resourceQuery(/blockType=i18n/)
       .type('javascript/auto')
       .use('i18n')
-      .loader('@intlify/vue-i18n-loader');
+      .loader('@intlify/vue-i18n-loader')
   },
 
   pwa: {
     name: 'RAHomeBookkeeping',
-    themeColor: '#439EDD',
-  },
-};
+    themeColor: '#439EDD'
+  }
+}
