@@ -12,7 +12,7 @@
 			<template #header>
 				<strong>{{ t('History.panel1') }}</strong>
 			</template>
-			<LineChart :data="chartData" :options="chartOptions" />
+			<Chart type="line" :data="chartData" :options="chartOptions" />
 		</Panel>
 
 		<Panel :toggleable="true" :collapsed="true">
@@ -161,7 +161,7 @@ import InputNumber from 'primevue/inputnumber'
 import { FilterMatchMode, FilterOperator } from 'primevue/api'
 import Status from '@/components/ui/Status'
 import Panel from 'primevue/panel'
-import { LineChart } from 'vue-chart-3'
+import Chart from 'primevue/chart'
 import currencyFilter from '@/utils/currency'
 
 export default {
@@ -171,12 +171,12 @@ export default {
 		Dropdown,
 		Calendar,
 		Status,
-		LineChart,
 		Page,
 		ProgressSpinner,
 		DataTable,
 		Column,
-		ColumnGroup
+		ColumnGroup,
+		Chart
 	},
 	setup() {
 		const i18n = useI18n()

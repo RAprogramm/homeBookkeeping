@@ -3,7 +3,7 @@ import App from '@/App.vue'
 import '@/registerServiceWorker'
 import { setupRouter } from '@/router'
 import store from '@/store'
-import { getAuth } from 'firebase/auth'
+import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import '@/styles.css'
 
 import PrimeVue from 'primevue/config'
@@ -16,12 +16,11 @@ import 'primevue/resources/themes/saga-blue/theme.css'
 import 'primevue/resources/primevue.min.css'
 import 'primeicons/primeicons.css'
 
-import { Chart, registerables } from 'chart.js'
 import 'chartjs-adapter-luxon'
 
-import { setupI18n } from '@/i18n'
+import {setupI18n } from '@/i18n'
 
-import en from '@/i18n/locales/en.json'
+import en from "@/i18n/locales/en.json"
 import ko from '@/i18n/locales/ko.json'
 import ru from '@/i18n/locales/ru.json'
 import ur from '@/i18n/locales/ur.json'
@@ -36,9 +35,7 @@ const i18n = setupI18n({
 
 const router = setupRouter(i18n)
 
-Chart.register(...registerables)
-
-let app
+	let app
 
 getAuth().onAuthStateChanged(() => {
 	if (!app) {

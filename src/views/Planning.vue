@@ -1,11 +1,11 @@
 <template>
 	<Page>
 		<template #title>
-			{{ t('Planning.title') }}
+			{{ $t('Planning.title') }}
 		</template>
 		<template #header>
 			<div>
-				<p class="balInfo">{{ t('Planning.header') }}</p>
+				<p class="balInfo">{{ $t('Planning.header') }}</p>
 				<h4 class="balInfoAm">{{ currencyFilter(bill) }}</h4>
 			</div>
 		</template>
@@ -15,9 +15,9 @@
 
 	<Dialog v-else-if="categories.length === 0" visible>
 		<template #header>
-			<h3>{{ t('Planning.Dialog.header') }}</h3>
+			<h3>{{ $t('Planning.Dialog.header') }}</h3>
 		</template>
-		<p>{{ t('Planning.Dialog.text') }}</p>
+		<p>{{ $t('Planning.Dialog.text') }}</p>
 		<template #footer>
 			<Button
 				label="label"
@@ -25,7 +25,7 @@
 				@click="$router.push('/')"
 				class="p-button-text"
 			>
-				<span class="p-button-label">{{ t('Planning.Dialog.no') }}</span>
+				<span class="p-button-label">{{ $t('Planning.Dialog.no') }}</span>
 			</Button>
 			<Button
 				label="label"
@@ -33,7 +33,7 @@
 				@click="$router.push('/categories')"
 				autofocus
 			>
-				<span class="p-button-label">{{ t('Planning.Dialog.yes') }}</span>
+				<span class="p-button-label">{{ $t('Planning.Dialog.yes') }}</span>
 			</Button>
 		</template>
 	</Dialog>
@@ -41,16 +41,16 @@
 	<section v-else>
 		<Panel :toggleable="true" :collapsed="true">
 			<template #header>
-				<strong>{{ t('Planning.Panel.header') }}</strong>
+				<strong>{{ $t('Planning.Panel.header') }}</strong>
 			</template>
-			<Pie :data="chartData" :options="chartOptions" />
+			<Chart type="pie" :data="chartData" :options="chartOptions" />
 		</Panel>
 		<div class="progBars">
 			<div class="card" v-for="c in categories" :key="c.id">
 				<div class="homeCard">
 					<p>
 						<strong>{{ c.title }}: </strong>
-						{{ currencyFilter(c.spend) }} {{ t('Planning.outOf') }}
+						{{ currencyFilter(c.spend) }} {{ $t('Planning.outOf') }}
 						{{ currencyFilter(c.limit) }}
 					</p>
 					<ProgressBar
@@ -72,18 +72,18 @@ import currencyFilter from '@/utils/currency'
 import Dialog from 'primevue/dialog'
 import ProgressBar from 'primevue/progressbar'
 import Panel from 'primevue/panel'
-import { Pie } from 'vue-chart-3'
 import { useI18n } from 'vue-i18n'
+import Chart from 'primevue/chart'
 
 export default {
-	components: { Page, Dialog, ProgressSpinner, ProgressBar, Panel, Pie },
+	components: { Page, Dialog, ProgressSpinner, ProgressBar, Panel, Chart},
 	setup() {
 		const store = useStore()
 		const loading = ref(true)
 		const categories = ref([])
 		const chartData = ref({})
 		const chartOptions = ref({})
-		const i18n = useI18n()
+		const {t} = useI18n()
 
 		const bill = computed(() => store.getters['user/info'].bill)
 
@@ -104,8 +104,8 @@ export default {
 				const tooltipValue = cat.limit - spend
 				const tooltip = `${
 					tooltip < 0
-						? i18n.t('Planning.tooltip+')
-						: i18n.t('Planning.tooltip-')
+						? t('Planning.tooltip+')
+						: t('Planning.tooltip-')
 				} ${currencyFilter(Math.abs(tooltipValue))}`
 
 				return {
@@ -131,7 +131,6 @@ export default {
 		})
 
 		return {
-			...useI18n(),
 			bill,
 			loading,
 			categories,
