@@ -1,4 +1,5 @@
 # vue3-crm
+[See example on firebase](https://ra-home-bookkeeping.firebaseapp.com)
 
 ## Project setup
 ```
