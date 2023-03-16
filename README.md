@@ -1,1 +1,1 @@
-[Try it here](ra-home-bookkeeping.web.app)
+[Try it here](https://ra-home-bookkeeping.web.app/)
